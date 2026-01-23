@@ -5,6 +5,7 @@ import Home from './Home';
 import About from './About';
 import Challenges from './Challenges';
 import RallyGame from './RallyGame';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -47,6 +48,19 @@ function App() {
               ENTER GAME
             </motion.button>
           </Link>
+          <Link to="/profile">
+            <motion.div
+              className="w-10 h-10 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center ml-4 cursor-pointer overflow-hidden"
+              whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(0,255,255,0.5)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <img 
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+                alt="Profile" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </Link>
         </div>
       </motion.header>
 
@@ -55,6 +69,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/challenge/rally" element={<RallyGame />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
