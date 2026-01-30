@@ -5,6 +5,7 @@ import Home from './Home';
 import About from './About';
 import Challenges from './Challenges';
 import RallyGame from './RallyGame';
+import MazeChallenge from './MazeChallenge';
 import Profile from './Profile';
 
 function App() {
@@ -35,32 +36,34 @@ function App() {
               </span>
             </motion.div>
           </Link>
-          <Link to="/challenges">
-            <motion.button
-              className="px-6 py-2 bg-cyan-400 text-black font-bold border-4 border-white"
-              whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(0,255,255,0.8)' }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                boxShadow: '4px 4px 0 rgba(0,0,0,0.5)',
-                fontFamily: 'monospace'
-              }}
-            >
-              ENTER GAME
-            </motion.button>
-          </Link>
-          <Link to="/profile">
-            <motion.div
-              className="w-10 h-10 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center ml-4 cursor-pointer overflow-hidden"
-              whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(0,255,255,0.5)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </Link>
+          <div className="flex gap-4 items-center">
+            <Link to="/challenges">
+              <motion.button
+                className="px-6 py-2 bg-cyan-400 text-black font-bold border-4 border-white"
+                whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(0,255,255,0.8)' }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  boxShadow: '4px 4px 0 rgba(0,0,0,0.5)',
+                  fontFamily: 'monospace'
+                }}
+              >
+                ENTER GAME
+              </motion.button>
+            </Link>
+            <Link to="/profile">
+              <motion.div
+                className="w-10 h-10 rounded-full bg-slate-800 border-2 border-cyan-400 flex items-center justify-center cursor-pointer overflow-hidden"
+                whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(0,255,255,0.5)' }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </Link>
+          </div>
         </div>
       </motion.header>
 
@@ -69,6 +72,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/challenge/rally" element={<RallyGame />} />
+        <Route path="/challenge/maze" element={<MazeChallenge />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

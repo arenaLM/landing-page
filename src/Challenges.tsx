@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Car, Lock, Users, Trophy, Play } from 'lucide-react';
+import { Car, Users, Trophy, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function Challenges() {
@@ -30,18 +30,18 @@ function Challenges() {
               transition={{ delay: 0.2 }}
             >
               <div className="h-48 bg-gradient-to-r from-blue-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-30" 
-                  style={{ 
+                <div className="absolute inset-0 opacity-30"
+                  style={{
                     backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
                     backgroundSize: '20px 20px'
-                  }} 
+                  }}
                 />
                 <Car className="w-20 h-20 text-white group-hover:scale-110 transition-transform duration-300" />
                 <div className="absolute bottom-4 right-4 bg-green-500 text-black text-xs font-bold px-2 py-1 rounded font-mono">
                   LIVE
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors" style={{ fontFamily: 'monospace' }}>
                   01: MULTI-TERRAIN RALLY
@@ -49,7 +49,7 @@ function Challenges() {
                 <p className="text-slate-400 mb-4 font-mono text-sm leading-relaxed">
                   Optimize suspension, gear ratios, and diff-lock for a circular track featuring Snow, Dirt, Gravel, and Sand. Use RL or heuristic prompting.
                 </p>
-                
+
                 <div className="flex gap-2 flex-wrap">
                   <span className="text-xs bg-slate-800 px-2 py-1 rounded text-cyan-300 border border-slate-700 font-mono">Three.js</span>
                   <span className="text-xs bg-slate-800 px-2 py-1 rounded text-cyan-300 border border-slate-700 font-mono">Python/JS</span>
@@ -59,36 +59,51 @@ function Challenges() {
             </motion.div>
           </Link>
 
-          {/* Challenge 2: Locked */}
-          <motion.div
-            className="relative bg-slate-900 rounded-xl overflow-hidden border-2 border-slate-800 opacity-75"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <div className="absolute inset-0 bg-black/60 z-10 flex flex-col items-center justify-center backdrop-blur-sm">
-              <Lock className="w-12 h-12 text-slate-500 mb-3" />
-              <div className="text-slate-400 font-bold tracking-widest font-mono">LOCKED</div>
-              <div className="text-slate-500 text-sm mt-1 font-mono">Unlocks in 29 days</div>
-            </div>
-            
-            <div className="h-48 bg-slate-800 flex items-center justify-center">
-              <Users className="w-20 h-20 text-slate-700" />
-            </div>
-            
-            <div className="p-6 filter blur-sm">
-              <h3 className="text-2xl font-bold text-white mb-2 font-mono">
-                02: DRONE SWARM
-              </h3>
-              <p className="text-slate-400 mb-4 font-mono text-sm">
-                Coordinate 50 drones to map a cave system.
-              </p>
-            </div>
-          </motion.div>
+          {/* Challenge 2: Maze Worker */}
+          <Link to="/challenge/maze">
+            <motion.div
+              className="group relative bg-slate-900 rounded-xl overflow-hidden border-2 border-slate-800 hover:border-green-400 transition-all cursor-pointer"
+              whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(34,197,94,0.3)' }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="h-48 bg-gradient-to-r from-green-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-30"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
+                    backgroundSize: '20px 20px'
+                  }}
+                />
+                <div className="grid grid-cols-3 gap-1 opacity-50 absolute right-10 top-10 rotate-12">
+                  {[...Array(9)].map((_, i) => <div key={i} className="w-2 h-2 bg-green-400/50"></div>)}
+                </div>
+                <Users className="w-20 h-20 text-white group-hover:scale-110 transition-transform duration-300" />
+                <div className="absolute bottom-4 right-4 bg-green-500 text-black text-xs font-bold px-2 py-1 rounded font-mono">
+                  NEW
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors" style={{ fontFamily: 'monospace' }}>
+                  02: MAZE WORKER
+                </h3>
+                <p className="text-slate-400 mb-4 font-mono text-sm leading-relaxed">
+                  Navigate a 3D maze using logic. Program your bot to find the exit from Top Right to Bottom Left.
+                </p>
+
+                <div className="flex gap-2 flex-wrap">
+                  <span className="text-xs bg-slate-800 px-2 py-1 rounded text-green-300 border border-slate-700 font-mono">Algorithms</span>
+                  <span className="text-xs bg-slate-800 px-2 py-1 rounded text-green-300 border border-slate-700 font-mono">Logic</span>
+                  <span className="text-xs bg-slate-800 px-2 py-1 rounded text-green-300 border border-slate-700 font-mono">Bot</span>
+                </div>
+              </div>
+            </motion.div>
+          </Link>
         </div>
 
         {/* Mini Leaderboard Preview */}
-        <motion.div 
+        <motion.div
           className="mt-16 grid md:grid-cols-2 gap-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +121,7 @@ function Challenges() {
               ].map((school, i) => (
                 <div key={school.name} className="flex justify-between items-center p-3 bg-slate-800/50 rounded">
                   <div className="flex items-center gap-3 font-mono text-white">
-                    <span className={`${school.color} font-bold`}>#{i+1}</span>
+                    <span className={`${school.color} font-bold`}>#{i + 1}</span>
                     {school.name}
                   </div>
                   <span className="text-green-400 font-mono text-sm">{school.score.toLocaleString()} pts</span>
